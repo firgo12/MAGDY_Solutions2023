@@ -113,6 +113,15 @@ body {
   margin-left: 50px;
 }
 
+.layout_top5{
+  position: relative;
+  width:100%;
+  max-width:300px;
+  height: fit-content;
+  max-height: 200px;
+  
+}
+
 .main-table{
   position: absolute;
   display: flex;
@@ -147,10 +156,22 @@ th {
 }
 
 .myFeedback{
-  display:block;
+  display:grid;
   position: relative;
   margin-top: 33%;
   margin-left: 50px;
+  width: 80%;
+  height: fit-content;
 }
 
 /**************** Fim Table *********************/
+
+.probabilidade{
+ display:flex;
+ position: relative;
+}
+
+p{
+  margin-top: 30px;
+  margin-right: 50px;
+}
