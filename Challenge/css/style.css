@@ -100,11 +100,11 @@ body {
   border: 1px solid #000000;
   padding: 20px;
   width: 25%;
-  height: 100%;
+  height: fit-content;
   left: 69%;
 }
 
-.layout_feedbackGeral{
+.layout_feedbackGeral, .layout_feedback{
   position: absolute;
   width:100%;
   max-width:618px; 
@@ -174,4 +174,14 @@ th {
 p{
   margin-top: 30px;
   margin-right: 50px;
+}
+
+button{
+  padding: 8px;
+  margin-bottom:5px ;
+  background-color: var(--color-primary);
+  border: 0;
+  cursor: pointer;
+  
+  color: var(--bg-white);
 }

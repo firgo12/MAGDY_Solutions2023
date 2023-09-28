@@ -1,5 +1,5 @@
 let dropdown = document.getElementsByClassName("dropdown-btn");
-const ctx = document.getElementById('myChart_feedbackGeral');
+const ctx = document.getElementById('myChart_feedback');
 let i;
 
 //Função do menu: DropDown; Escutador de evento do clique
@@ -19,7 +19,7 @@ for (i = 0; i < dropdown.length; i++) {
 //Grafico dos dados dos feedbacks
 
 new Chart(ctx, {
-  type: 'line',
+  type: 'bar',
   data: {
     labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
     datasets: [{
@@ -33,34 +33,6 @@ new Chart(ctx, {
       y: {
         beginAtZero: true
       }
-    }
-  }
-});
-
-//Gráfico dos Top 5
-const xValues = ["Italy", "France", "Spain", "USA", "Argentina"];
-const yValues = [55, 49, 44, 24, 15];
-const barColors = [
-  "#b91d47",
-  "#00aba9",
-  "#2b5797",
-  "#e8c3b9",
-  "#1e7145"
-];
-
-new Chart("myChart_top5", {
-  type: "doughnut",
-  data: {
-    labels: xValues,
-    datasets: [{
-      backgroundColor: barColors,
-      data: yValues
-    }]
-  },
-  options: {
-    title: {
-      display: true,
-      text: "World Wide Wine Production 2018"
     }
   }
 });
@@ -82,7 +54,16 @@ async function init() {
   data = [{
       "codigo": 1,
       "feedback": "Basta trazer de volta garrafas de vidro. Você não se importa com embalagens ecologicamente corretas usando todo aquele plástico volumoso; pelo menos ter uma opção de vidro para quem a) não compra plástico ou b) não quer aquelas garrafas enormes ocupando todo o espaço da geladeira",
-      "redeSocial": "Twitter"
+      "redeSocial": 2,
+      "nAmei": 0,
+      "nForca":0,
+      "nHaha": 0,
+      "nUau": 0,
+      "nTriste": 0,
+      "nGrr": 0,
+      "data": "22/03/2023",
+      "user": "Jackie Wright",
+      "post": "Water is essential to life, yet about 2 billion people worldwide don’t have access to safe drinking water. As a proud signatory of the CEO Water Mandate, we’re committed to water stewardship across our entire value chain and aim to reduce water use by 20% in high-risk watershed areas and by 15% across all sites by 2025. We’re on our way to achieving our goals and leading the future of food. Learn more about a few of the initiatives taking place #HereAtKraftHeinz"
     },
     {
       "codigo": 2,
@@ -173,6 +154,15 @@ function renderTable() {
      <td>${c.codigo}</td>
      <td>${c.feedback}</td>
      <td>${c.redeSocial}</td>
+     <td>${c.nAmei}</td>
+     <td>${c.nForca}</td>
+     <td>${c.nHaha}</td>
+     <td>${c.nUau}</td>
+     <td>${c.nTriste}</td>
+     <td>${c.nGrr}</td>
+     <td>${c.data}</td>
+     <td>${c.user}</td>
+     <td>${c.post}</td>
      </tr>`;
   });
   table.innerHTML = result;
