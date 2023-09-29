@@ -35,6 +35,11 @@ body {
     background-color: var(--color-secondary);
 }
 
+h3{
+  margin-top: 10px;
+  text-align: center;
+}
+
 .menu {
     position: relative;
     display: block;
