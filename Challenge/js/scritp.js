@@ -21,10 +21,10 @@ for (i = 0; i < dropdown.length; i++) {
 new Chart(ctx, {
   type: 'line',
   data: {
-    labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+    labels: ['1ºTrimestre(2022)', '2ºTrimestre(2022)', '3ºTrimestre(2022)', '4ºTrimestre(2022)', '1ºTrimestre(2023)', '2ºTrimestre(2023)', '3ºTrimestre(2023)'],
     datasets: [{
-      label: '# of Votes',
-      data: [12, 19, 3, 5, 2, 3],
+      label: '# Nº de feedbacks',
+      data: [0, 1, 2, 3, 6, 0, 3],
       borderWidth: 1
     }]
   },
@@ -38,8 +38,8 @@ new Chart(ctx, {
 });
 
 //Gráfico dos Top 5
-const xValues = ["Italy", "France", "Spain", "USA", "Argentina"];
-const yValues = [55, 49, 44, 24, 15];
+const xValues = ["1º", "2º", "3º", "4º", "1º"];
+const yValues = [0, 1, 2, 24, 15];
 const barColors = [
   "#b91d47",
   "#00aba9",

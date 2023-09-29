@@ -10,7 +10,7 @@
 </head>
 
 <body>
-    <div class="container">
+     <div class="container">
         <div class="header"></div>
         <div class="menu">
             <img class="logo" src="../images/kraft-heinz-logo.png" alt="Logo da KraftHeinz">
@@ -30,11 +30,11 @@
 
          <div class="main-table">
             <div class="top5palavras">
-                <h3>Top 5 palavras mais repetidas</h3>
+                <h3>Top 5 feedbacks com mais curtidas</h3>
                 <hr>
                 <canvas id="myChart_top5" class="layout_top5"></canvas>
             </div>
-            <canvas id="myChart_feedbackGeral" class="layout_feedbackGeral"></canvas>
+            <canvas id="myChart_feedback" class="layout_feedback"></canvas>
         </div>
 
 
@@ -44,7 +44,11 @@
                     <tr>
                         <th data-sort="codigo">Código</th>
                         <th data-sort="feedback">Feedback</th>
-                        <th data-sort="redeSocial">Rede Social</th>
+                        <th data-sort="nCurtidas">Nº Curtidas</th>
+                        <th data-sort="data">Data</th>
+                        <th data-sort="user">User</th>
+                        <th data-sort="post">Link post</th>
+
                     </tr>
                 </thead>
                 <tbody>

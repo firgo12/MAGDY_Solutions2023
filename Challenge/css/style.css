@@ -45,8 +45,8 @@ body {
 }
 
 .logo{
-    height: 25%;
-    width: 75%;
+    height: 120px;
+    width: 120px;
     justify-content: center;
     align-items: center;
 }
