@@ -21,10 +21,10 @@ for (i = 0; i < dropdown.length; i++) {
 new Chart(ctx, {
   type: 'bar',
   data: {
-    labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+    labels: ['1ºTrimestre(2022)', '2ºTrimestre(2022)', '3ºTrimestre(2022)', '4ºTrimestre(2022)', '1ºTrimestre(2023)', '2ºTrimestre(2023)', '3ºTrimestre(2023)'],
     datasets: [{
-      label: '# of Votes',
-      data: [12, 19, 3, 5, 2, 3],
+      label: '#Nº de Curtidas',
+      data: [0, 0, 0, 0, 0, 0, 0],
       borderWidth: 1
     }]
   },
@@ -88,7 +88,7 @@ function renderTable() {
      <td>${c.nCurtidas}</td>
      <td>${c.data}</td>
      <td>${c.user}</td>
-     <td>${c.post}</td>
+     <td><a href="${c.post}">Link do post</a></td>
      </tr>`;
   });
   table.innerHTML = result;
