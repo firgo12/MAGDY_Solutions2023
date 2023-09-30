@@ -350,9 +350,6 @@ function nextPage() {
 function orderDataByCurtidas() {
   const dado = data;
   dado.sort(function (x, y) {
-    if (y.nCurtidas == 0 || x.nCurtidas == 0) {
-      return false
-    }
     return y.nCurtidas - x.nCurtidas;
   });
 
