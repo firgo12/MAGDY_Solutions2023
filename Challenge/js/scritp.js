@@ -29,7 +29,7 @@ new Chart(ctx, {
   data: {
     labels: ['1ºTrimestre(2022)', '2ºTrimestre(2022)', '3ºTrimestre(2022)', '4ºTrimestre(2022)', '1ºTrimestre(2023)', '2ºTrimestre(2023)', '3ºTrimestre(2023)'],
     datasets: [{
-      label: '# Nº de feedbacks',
+      label: '# Nº de feedbacks por Trimestre 2022-2023',
       data: [
         {x: 0, y:0},
         {x: 1, y:1},
