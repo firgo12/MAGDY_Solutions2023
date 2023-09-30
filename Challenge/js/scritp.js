@@ -166,18 +166,16 @@ const mediaGeometricaElement = document.getElementById("mediaGeometrica");
 mediaGeometricaElement.textContent = calcularMediaGeometrica();
 
 function calcularMediaHarmonica() {
-  const dadosDoGrafico = [0, 1, 2, 3, 6, 0, 3]; // Dados do gráfico
-  const inversos = dadosDoGrafico.map(valor => 1 / valor); // Calcula os inversos dos valores
+  const dadosDoGrafico = [0, 1, 2, 3, 6, 0, 3];
+  const inversos = dadosDoGrafico.map(valor => 1 / valor);
 
   if (dadosDoGrafico.length === 0 || inversos.includes(Infinity)) {
     return NaN, "Impossível calcular: divisão por zero";
    
   }
 
-  // Calcula a soma dos inversos
   const somaInversos = inversos.reduce((acumulador, valor) => acumulador + valor, 0);
 
-  // Calcula a média harmônica dividindo n pelo resultado da soma dos inversos
   const mediaHarmonica = dadosDoGrafico.length / somaInversos;
 
   return mediaHarmonica.toFixed(2); 

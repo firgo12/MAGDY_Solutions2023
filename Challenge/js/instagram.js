@@ -37,6 +37,147 @@ new Chart(ctx, {
   }
 });
 
+//função pra calcular a media aritmetica
+function calcularMediaAritmetica() {
+  const dadosDoGrafico = [0, 0, 0, 0, 0, 0, 0];
+  const soma = dadosDoGrafico.reduce((total, valor) => total + valor, 0);
+  const media = soma / dadosDoGrafico.length;
+  return media.toFixed(2);
+}
+  // Exibe a média na página
+  const mediaElement = document.getElementById("media");
+  mediaElement.textContent = calcularMediaAritmetica();
+
+// Função para calcular a mediana
+function calcularMediana() {
+  const dadosDoGrafico = [0, 0, 0, 0, 0, 0, 0];
+  const sortedData = [...dadosDoGrafico].sort((a, b) => a - b);
+
+  if (sortedData.length % 2 === 0) {
+    
+    const meio = sortedData.length / 2;
+    const valor1 = sortedData[meio - 1];
+    const valor2 = sortedData[meio];
+    return ((valor1 + valor2) / 2).toFixed(2);
+  } else {
+    const meio = Math.floor(sortedData.length / 2);
+    return sortedData[meio].toFixed(2);
+  }
+}
+// Exibe a mediana na página
+const medianaElement = document.getElementById("mediana");
+medianaElement.textContent = calcularMediana();
+
+//Função para calcular a dispersão (variância)
+function calcularDispersao() {
+  const dadosDoGrafico = [0, 0, 0, 0, 0, 0, 0];
+  const media = calcularMediaAritmetica(); 
+  const n = dadosDoGrafico.length;
+  
+  const somaDosQuadradosDasDiferencas = dadosDoGrafico.reduce((total, valor) => {
+    const diferenca = valor - media;
+    return total + diferenca * diferenca;
+  }, 0);
+  
+  const variancia = somaDosQuadradosDasDiferencas / (n - 1); 
+  return variancia.toFixed(2); 
+}
+ // Exibe a dispersão na página
+ const dispersaoElement = document.getElementById("dispersao");
+ dispersaoElement.textContent = calcularDispersao();
+
+ function calcularPrimeiroQuartil() {
+  const dadosDoGrafico = [0, 0, 0, 0, 0, 0, 0];
+  const n = dadosDoGrafico.length;
+
+  const sortedData = [...dadosDoGrafico].sort((a, b) => a - b);
+
+  const posicaoQ1 = Math.floor(n / 4);
+
+  if (n % 4 !== 0) {
+    return sortedData[posicaoQ1];
+  } else {
+    const valor1 = sortedData[posicaoQ1 - 1];
+    const valor2 = sortedData[posicaoQ1];
+    const q1= (valor1 + valor2) / 2;
+    return q1.toFixed(2);
+  }
+}
+ // Exibe o primeiro quartil (Q1) na página
+ const primeiroQuartilElement = document.getElementById("primeiroQuartil");
+ primeiroQuartilElement.textContent = calcularPrimeiroQuartil();
+
+ function calcularTerceiroQuartil() {
+  const dadosDoGrafico = [0, 0, 0, 0, 0, 0, 0];
+  const n = dadosDoGrafico.length;
+
+  const sortedData = [...dadosDoGrafico].sort((a, b) => a - b);
+  
+  const posicaoQ3 = Math.floor((3 * n) / 4);
+
+  if ((3 * n) % 4 !== 0) {
+    return sortedData[posicaoQ3];
+  } else {
+    const valor1 = sortedData[posicaoQ3 - 1];
+    const valor2 = sortedData[posicaoQ3];
+    const quartil=(valor1 + valor2) / 2;
+    return quartil.toFixed(2); 
+  }
+}
+
+// Exibe o terceiro quartil (Q3) na página
+const terceiroQuartilElement = document.getElementById("terceiroQuartil");
+terceiroQuartilElement.textContent = calcularTerceiroQuartil();
+
+  function calcularDesvioPadrao() {
+    const dadosDoGrafico = [0, 0, 0, 0, 0, 0, 0]; 
+    const media = calcularMediaAritmetica(); 
+  
+    const somaDasDiferencasQuadradas = dadosDoGrafico.reduce((total, valor) => {
+      const diferenca = valor - media;
+      return total + diferenca * diferenca;
+    }, 0);
+  
+    const variancia = somaDasDiferencasQuadradas / dadosDoGrafico.length;
+  
+    const desvioPadrao = Math.sqrt(variancia);
+    return desvioPadrao.toFixed(2); 
+  }
+// Exibe o desvio padrão na página
+const desvioPadraoElement = document.getElementById("desvioPadrao");
+desvioPadraoElement.textContent = calcularDesvioPadrao();
+
+function calcularMediaGeometrica() {
+  const dadosDoGrafico = [0, 0, 0, 0, 0, 0, 0];
+  if (dadosDoGrafico.length === 0 || dadosDoGrafico.includes(0)) {
+    return NaN, "Impossível calcular: divisão por zero";
+  }
+
+  const produto = dadosDoGrafico.reduce((acumulador, valor) => acumulador * valor, 1);
+
+  const mediaGeometrica = Math.pow(produto, 1 / dadosDoGrafico.length);
+  return mediaGeometrica.toFixed(2);
+}
+// Exibe a média geométrica na página
+const mediaGeometricaElement = document.getElementById("mediaGeometrica");
+mediaGeometricaElement.textContent = calcularMediaGeometrica();
+
+function calcularMediaHarmonica() {
+  const dadosDoGrafico = [0, 0, 0, 0, 0, 0, 0];
+  const inversos = dadosDoGrafico.map(valor => 1 / valor);
+  if (dadosDoGrafico.length === 0 || inversos.includes(Infinity)) {
+    return NaN, "Impossível calcular: divisão por zero";
+   
+  }
+  const somaInversos = inversos.reduce((acumulador, valor) => acumulador + valor, 0);
+
+  const mediaHarmonica = dadosDoGrafico.length / somaInversos;
+
+  return mediaHarmonica.toFixed(2); 
+}
+const mediaHarmonicaElement=document.getElementById("mediaHarmonica");
+mediaHarmonicaElement.textContent=calcularMediaHarmonica();
+
 //Tabela dos feedbacks
 
 document.addEventListener('DOMContentLoaded', init, false);
