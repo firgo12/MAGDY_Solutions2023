@@ -211,6 +211,8 @@ new Chart("myChart_top5", {
   }
 });
 
+
+
 //Tabela dos feedbacks
 
 document.addEventListener('DOMContentLoaded', init, false);
@@ -334,3 +336,35 @@ function nextPage() {
   if ((curPage * pageSize) < data.length) curPage++;
   renderTable();
 }
+
+//top 5 palavras repetidas
+function findTop5WordsInFeedbacks() {
+  const wordCount = {};
+  data.forEach((feedback) => {
+    const words = feedback.feedback.split(/\s+/);
+    words.forEach((word) => {
+      word = word.toLowerCase();
+      if (word.length > 4
+        ) { 
+        if (wordCount[word]) {
+          wordCount[word]++;
+        } else {
+          wordCount[word] = 1;
+        }
+      }
+    });
+  });
+  const sortedWords = Object.keys(wordCount).sort((a, b) => wordCount[b] - wordCount[a]);
+  const top5Words = sortedWords.slice(0, 5);
+  return top5Words;
+}
+
+// Chamando a função e exibindo as 5 palavras mais repetidas na página
+document.addEventListener('DOMContentLoaded', () => {
+  const top5Words = findTop5WordsInFeedbacks();
+  const top5WordsList = document.querySelector('.top5palavras h3');
+  top5WordsList.innerHTML = 'Top 5 palavras mais repetidas:';
+  top5Words.forEach((word, index) => {
+    top5WordsList.innerHTML += `<br>${index + 1}. ${word}`;
+  });
+});
