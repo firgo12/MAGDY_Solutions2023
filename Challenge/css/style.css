@@ -109,6 +109,10 @@ h3{
   left: 69%;
 }
 
+p {
+  height: 10px;
+}
+
 .layout_feedbackGeral, .layout_feedback{
   position: absolute;
   width:100%;

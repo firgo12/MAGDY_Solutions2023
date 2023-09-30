@@ -383,7 +383,7 @@ function findTop5WordsInFeedbacks() {
 document.addEventListener('DOMContentLoaded', () => {
   const top5Words = findTop5WordsInFeedbacks();
   const top5WordsList = document.querySelector('.top5palavras h3');
-  top5WordsList.innerHTML = 'Top 5 palavras mais repetidas:';
+  top5WordsList.innerHTML = "Top 5 palavras mais repetidas: ";
   top5Words.forEach((word, index) => {
     top5WordsList.innerHTML += `<br>${index + 1}. ${word}`;
   });

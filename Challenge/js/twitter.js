@@ -1,5 +1,6 @@
 let dropdown = document.getElementsByClassName("dropdown-btn");
 const ctx = document.getElementById('myChart_feedback');
+const top5Curtidas = document.querySelector(".top5palavras p");
 let i;
 
 //Função do menu: DropDown; Escutador de evento do clique
@@ -269,3 +270,27 @@ function nextPage() {
   if ((curPage * pageSize) < data.length) curPage++;
   renderTable();
 }
+
+function orderDataByCurtidas() {
+  const dado = data;
+  dado.sort(function (x, y) {
+    return y.nCurtidas - x.nCurtidas;
+  });
+
+  return dado;
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+  const ordenedData = orderDataByCurtidas();
+  top5Curtidas.innerHTML = "Código dos 5 feedbacks com mais curtidas: <br>";
+  for (let i = 0; i < 5; i++) {
+    console.log(typeof ordenedData[i].nCurtidas);
+    if (
+      ordenedData[i].nCurtidas === 0 ||
+      ordenedData[i].nCurtidas == undefined
+    ) {
+      break;
+    } else
+      top5Curtidas.innerHTML += `<br>${i + 1}º lugar: ${ordenedData[i].codigo}`;
+  }
+});
