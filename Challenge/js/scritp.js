@@ -1,5 +1,5 @@
 let dropdown = document.getElementsByClassName("dropdown-btn");
-const ctx = document.getElementById('myChart_feedbackGeral');
+const ctx = document.getElementById('myChart_feedbackGeral').getContext("2d");
 let i;
 
 //Função do menu: DropDown; Escutador de evento do clique
@@ -17,16 +17,36 @@ for (i = 0; i < dropdown.length; i++) {
 }
 
 //Grafico dos dados dos feedbacks
+const regression = [];
+
+for (i = 0; i <= 7; i++){
+  yval = 0.6786 + 1.0952 * i;
+  regression.push({x: i, y: yval})
+}
 
 new Chart(ctx, {
-  type: 'line',
+  type: 'scatter',
   data: {
     labels: ['1ºTrimestre(2022)', '2ºTrimestre(2022)', '3ºTrimestre(2022)', '4ºTrimestre(2022)', '1ºTrimestre(2023)', '2ºTrimestre(2023)', '3ºTrimestre(2023)'],
     datasets: [{
       label: '# Nº de feedbacks',
-      data: [0, 1, 2, 3, 6, 0, 3],
+      data: [
+        {x: 0, y:0},
+        {x: 1, y:1},
+        {x: 2, y:2},
+        {x: 3, y:3},
+        {x: 4, y:6},
+        {x: 5, y:0},
+        {x: 6, y:3},
+      ],
       borderWidth: 1
-    }]
+    },
+    {
+      label: 'Linha de Regressão',
+      type: 'line',
+      data: regression,
+    }
+  ]
   },
  
   options: {
