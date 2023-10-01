@@ -110,7 +110,7 @@ h3{
 }
 
 p {
-  height: 10px;
+  height: fit-content;
 }
 
 .layout_feedbackGeral, .layout_feedback{
