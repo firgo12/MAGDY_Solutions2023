@@ -110,7 +110,8 @@ h3{
 }
 
 p {
-  height: fit-content;
+  height: 1px;
+  max-height: fit-content;
 }
 
 .layout_feedbackGeral, .layout_feedback{
@@ -175,6 +176,7 @@ td, th {
  display:flex;
  position: relative;
  margin-bottom: 25px;
+ min-height: 100px;
 }
 
 p{
